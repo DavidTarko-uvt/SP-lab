@@ -1,5 +1,6 @@
 public class Paragraph extends Element {
     public String text;
+    private AlignStrategy AlignStrategy;
     public Paragraph(String s) {
         this.text=s;
     }
@@ -21,6 +22,13 @@ public class Paragraph extends Element {
     @Override
     public void print()
     {
-        System.out.println("Paragraph :"+text);
+        if (AlignStrategy != null)
+            System.out.println("Paragraph :"+text+" "+AlignStrategy.AlignmentType);
+        else
+            System.out.println("Paragraph :"+text);
+    }
+
+    public void setAlignStrategy(AlignStrategy alignStrategy) {
+        this.AlignStrategy=alignStrategy;
     }
 }
