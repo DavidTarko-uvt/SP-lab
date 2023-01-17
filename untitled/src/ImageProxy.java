@@ -1,23 +1,49 @@
-import java.awt.*;
+package models;
 
-public class ImageProxy extends Element{
-    public String URL;
-    public Dimension dim;
-    public Image loadImage(){
-        Image realImage = null;
-        if (realImage==null)
-        {
-            realImage = new Image(this.URL);
+public class ImageProxy implements Picture, Element {
+
+    private Image realImage = null;
+    private String url;
+
+    public ImageProxy(String url) {
+        this.url = url;
+
+    }
+
+    public Image loadImage() {
+        if (realImage == null) {
+            this.realImage = new Image(this.url);
         }
-        return realImage;
+        return this.realImage;
     }
 
-    public ImageProxy(String URL) {
-        this.URL = URL;
+    @Override
+    public void print() {
+        loadImage().print();
+
     }
 
-    public void print()
-    {
-        System.out.println("Image with Image name:"+URL);
+    @Override
+    public void add(Element e) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void remove(Element e) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public Element get(int i) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitImageProxy(this);
+
     }
 }

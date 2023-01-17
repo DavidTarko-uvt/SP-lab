@@ -1,5 +1,11 @@
-public class AlignCenter extends AlignStrategy{
-    public AlignCenter() {
-        super("alignCenter");
+package services;
+
+public class AlignCenter implements AlignStrategy {
+
+    @Override
+    public String render(String text) {
+        return "###" + text + "###";
+
     }
+
 }

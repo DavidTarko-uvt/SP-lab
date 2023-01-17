@@ -1,10 +1,14 @@
+package models;
 import java.util.concurrent.TimeUnit;
 
-public class Image extends Element{
-    public String URL;
-    public Image(String s) {
+public class Image implements Picture, Element {
 
-        this.URL=s;
+    String url;
+    String content;
+
+    public Image(String url) {
+        super();
+        this.url = url;
         try {
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {
@@ -13,22 +17,34 @@ public class Image extends Element{
     }
 
     @Override
-    public void add(Element element) {
-        //nimic
+    public void print() {
+        System.out.println("Image with name: " + this.url);
+
     }
 
     @Override
-    public void get(int id) {
-        //nimic
+    public void add(Element e) {
+        // TODO Auto-generated method stub
+
     }
 
     @Override
-    public void remove(Element element) {
-        //nimic
+    public void remove(Element e) {
+        // TODO Auto-generated method stub
+
     }
 
-    public void print()
-    {
-        System.out.println("Image with Image name:"+URL);
+    @Override
+    public Element get(int i) {
+        return null;
+        // TODO Auto-generated method stub
+
     }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitImage(this);
+
+    }
+
 }

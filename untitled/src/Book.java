@@ -1,33 +1,52 @@
+package models;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Book extends  Section{
-    public String title;
-    public Author auth;
+public class Book extends Section {
+
+    List<Author> a = new ArrayList<Author>();
 
     public Book(String title) {
-        super();
-        this.title=title;
-        this.myList= new ArrayList<Element>();
+        super(title);
+    }
+
+    public void addAuthor(Author a) {
+        this.a.add(a);
+
+    }
+
+    public void addContent(Element e) {
+        this.e.add(e);
+
+    }
+
+    public void print() {
+
+        System.out.println("Book: " + this.title + "\n");
+        Iterator<Author> it = a.iterator();
+
+        System.out.println("Authors:");
+
+        while (it.hasNext()) {
+            System.out.println("Author: " + it.next().print());
+        }
+        System.out.println();
+
+        Iterator<Element> it2 = this.e.iterator();
+        while (it2.hasNext()) {
+            it2.next().print();
+        }
+
     }
 
     @Override
-    public void print() {
-        System.out.println("Book Title : " +title);
-        System.out.println("By: " +auth.name);
-        System.out.println();
-        for(Element e : myList)
-        {
-            e.print();
-        }
-    }
-
-    public void addAuthor(Author auth) {
-        this.auth=auth;
+    public String toString() {
+        return "Book [a=" + a + ", title=" + title + ", e=" + e + "]";
     }
 
 
-    public void addContent(Element e) {
-        this.myList.add(e);
-    }
+
+
 }

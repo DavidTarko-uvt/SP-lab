@@ -1,23 +1,19 @@
-import java.awt.*;
-import java.util.concurrent.TimeUnit;
+package models;
+public interface Picture {
 
-public class Picture {
-    public String URL;
-    public Dimension dim;
-    // public PictureContent content;
-    public Picture(String s) {
+    public static String url() {
+        return "";
 
-        this.URL=s;
-        try {
-            TimeUnit.SECONDS.sleep(5);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
+    public static int dim() {
+        return 0;
 
-    public void print()
-    {
-        System.out.println("Image with Image name:"+URL);
     }
+
+    public static String content() {
+        return "";
+
+    }
+
 }

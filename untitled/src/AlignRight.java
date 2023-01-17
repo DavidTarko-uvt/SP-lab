@@ -1,5 +1,11 @@
-public class AlignRight extends AlignStrategy{
-    public AlignRight() {
-        super("alignRight");
+package services;
+
+public class AlignRight implements AlignStrategy {
+
+    @Override
+    public String render(String text) {
+        return "###" + "###" + text;
+
     }
+
 }

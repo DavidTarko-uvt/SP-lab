@@ -1,7 +1,9 @@
-public class AlignStrategy {
-    public String AlignmentType;
+package services;
 
-    public AlignStrategy(String alignmentType) {
-        AlignmentType = alignmentType;
-    }
+public interface AlignStrategy {
+
+    public String render(String title);
+
+
+
 }
