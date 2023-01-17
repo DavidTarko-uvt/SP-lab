@@ -1,16 +1,23 @@
 package models;
 
-import services.AlignStrategy;
+import java.util.ArrayList;
 
-public class Paragraph implements Element{
-    String text;
+public class TableOfContents implements Element{
+    ArrayList<String> contents;
 
-    public Paragraph(String text) {
-        this.text = text;
+
+    public TableOfContents() {
+        this.contents = new ArrayList<String>();
     }
 
+    @Override
     public void print() {
-        System.out.println("Paragraph: " + this.text);
+        contents.forEach(System.out::println);
+
+    }
+
+    public void addEntry(String entry) {
+        contents.add(entry);
     }
 
     @Override
@@ -31,14 +38,9 @@ public class Paragraph implements Element{
         return null;
     }
 
-    public void setAlign(AlignStrategy alignStrategy) {
-        this.text = alignStrategy.render(this.text);
-
-    }
-
     @Override
     public void accept(Visitor visitor) {
-        visitor.visitParagraph(this);
-
+        visitor.visitTableOfContents(this);
     }
+
 }
